@@ -9,13 +9,14 @@ public class WebRequest : MonoBehaviour
 
     public List<string> CurrentData;
 
-
+    [Header("Database Text")]
     public TextMeshProUGUI Question_text;
     public TextMeshProUGUI Answer1;
     public TextMeshProUGUI Answer2;
     public TextMeshProUGUI Answer3;
     public TextMeshProUGUI Answer4;
 
+    public string Correct_Answer;
 
     string Uri = "https://localhost:44395/api/Question/";
     IEnumerator GetRequest(string uri, int questionID)
@@ -45,14 +46,12 @@ public class WebRequest : MonoBehaviour
 
                 ApplyListToString();
             }
-
         }
     }
 
     public void get_question(int QuestionID)
     {
         StartCoroutine(GetRequest(Uri, QuestionID));
-
     }
 
     public void ApplyListToString()
@@ -62,6 +61,7 @@ public class WebRequest : MonoBehaviour
         Answer2.text = CurrentData[2];
         Answer3.text = CurrentData[3];
         Answer4.text = CurrentData[4];
+        Correct_Answer = CurrentData[5];
     }
 
 }
