@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public WebRequest webRequest;
 
+    public Canvas[] Canvases = new Canvas[3];
+
     void Start()
     {
         isTimerRunning = true;   
@@ -57,6 +59,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayButton()
+    {
+        Canvases[0].gameObject.SetActive(false);
+        Canvases[1].gameObject.SetActive(true);
+    }
 
+    public void ResumeButton()
+    {
+        Canvases[1].gameObject.SetActive(false);
+        Canvases[0].gameObject.SetActive(true);
+    }
 
 }
