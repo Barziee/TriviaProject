@@ -12,10 +12,9 @@ public class GameManager : MonoBehaviour
     public bool isTimerRunning = false;
 
     public List<Button> buttons = new List<Button>();
-
     public WebRequest webRequest;
-
     public Canvas[] Canvases = new Canvas[3];
+
 
     void Start()
     {
@@ -57,6 +56,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("INCORRECT");
         }
+
+        webRequest.get_question(webRequest._questionID);
     }
 
     public void PlayButton()
@@ -69,6 +70,12 @@ public class GameManager : MonoBehaviour
     {
         Canvases[1].gameObject.SetActive(false);
         Canvases[0].gameObject.SetActive(true);
+    }
+
+    public void Register()
+    {
+        Canvases[1].gameObject.SetActive(false);
+        Canvases[2].gameObject.SetActive(true);
     }
 
 }

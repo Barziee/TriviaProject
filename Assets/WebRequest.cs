@@ -18,6 +18,8 @@ public class WebRequest : MonoBehaviour
 
     public string Correct_Answer;
 
+    public int _questionID;
+
     string Uri = "https://localhost:44395/api/Question/";
     IEnumerator GetRequest(string uri, int questionID)
     {
@@ -52,6 +54,7 @@ public class WebRequest : MonoBehaviour
     public void get_question(int QuestionID)
     {
         StartCoroutine(GetRequest(Uri, QuestionID));
+        _questionID++;
     }
 
     public void ApplyListToString()
