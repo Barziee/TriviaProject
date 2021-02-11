@@ -20,10 +20,11 @@ public class WebRequest : MonoBehaviour
 
     public int _questionID;
 
-    string Uri = "https://localhost:44395/api/Question/";
-    IEnumerator GetRequest(string uri, int questionID)
+    string QUri = "https://localhost:44356/api/Question/";
+    string BUri = "https://localhost:44356/api/Question/";
+    IEnumerator GetRequest(string uri, int ID)
     {
-        string uri_finale = uri + questionID;
+        string uri_finale = uri + ID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri_finale))
         {
             yield return webRequest.SendWebRequest();
@@ -34,14 +35,14 @@ public class WebRequest : MonoBehaviour
             }
             else
             {
-                Debug.Log(System.Convert.ToString(webRequest.downloadHandler.text));
+                //Debug.Log(System.Convert.ToString(webRequest.downloadHandler.text));
                 string question_text = System.Convert.ToString(webRequest.downloadHandler.text);
                 string[] Splits = question_text.Split(':', ',', '"');
                 foreach (string t in Splits)
                 {
                     if (t != "" && t != "{" && t != "Answer1" && t != "Answer2" && t != "Answer3" && t != "Answer4" && t != "}" && t != "Correct_Answer" && t != "Question_text")
                     {
-                        Debug.Log(t);
+                       // Debug.Log(t);
                         CurrentData.Add(t);
                     }
                 }
@@ -53,8 +54,18 @@ public class WebRequest : MonoBehaviour
 
     public void get_question(int QuestionID)
     {
-        StartCoroutine(GetRequest(Uri, QuestionID));
+        StartCoroutine(GetRequest(QUri, QuestionID));
         _questionID++;
+    } 
+    public void get_Battle(int battleid)
+    {
+        StartCoroutine(GetRequest(BUri, battleid));
+        
+    }  
+    public void EnterName(int battleid)
+    {
+        StartCoroutine(GetRequest(BUri, battleid));
+        
     }
 
     public void ApplyListToString()
