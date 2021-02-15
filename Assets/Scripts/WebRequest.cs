@@ -20,8 +20,8 @@ public class WebRequest : MonoBehaviour
 
     public int _questionID;
 
-    string QUri = "https://localhost:44356/api/Question/";
-    string BUri = "https://localhost:44356/api/Question/";
+    string QUri = "https://localhost:44395/api/Question/";
+    string BUri = "https://localhost:44395/api/Battle/";
     IEnumerator GetRequest(string uri, int ID)
     {
         string uri_finale = uri + ID;
@@ -42,7 +42,7 @@ public class WebRequest : MonoBehaviour
                 {
                     if (t != "" && t != "{" && t != "Answer1" && t != "Answer2" && t != "Answer3" && t != "Answer4" && t != "}" && t != "Correct_Answer" && t != "Question_text")
                     {
-                       // Debug.Log(t);
+                        // Debug.Log(t);
                         CurrentData.Add(t);
                     }
                 }
@@ -56,17 +56,17 @@ public class WebRequest : MonoBehaviour
     {
         StartCoroutine(GetRequest(QUri, QuestionID));
         _questionID++;
-    } 
+    }
     public void get_Battle(int battleid)
     {
         StartCoroutine(GetRequest(BUri, battleid));
-        
-    }  
+
+    }
 
     public void EnterName(int battleid)
     {
         StartCoroutine(GetRequest(BUri, battleid));
-        
+
     }
 
     public void ApplyListToString()
@@ -79,4 +79,29 @@ public class WebRequest : MonoBehaviour
         Correct_Answer = CurrentData[5];
     }
 
+    public void SendRequest()
+    {
+        StartCoroutine(SendPlayerName());
+    }
+
+    IEnumerator SendPlayerName()
+    {
+        string uri = "https://localhost:44395/api/Battle?PlayerName=" + GameManager.playerName + "&battleID=" + GameManager.battleID + "&isPlayerOne=" + GameManager.isPlayerOne;
+
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.isNetworkError)
+            {
+                Debug.Log("There was an error");
+            }
+            else
+            {
+                Debug.Log("SENT");
+            }
+
+        }
+
+    }
 }

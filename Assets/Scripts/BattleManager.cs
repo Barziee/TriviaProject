@@ -11,7 +11,6 @@ public class BattleManager : MonoBehaviour
     private BattleManager battleManager;
 
     public TMP_InputField inputField;
-    public string playerName;
 
 
     private void Awake()
@@ -22,8 +21,7 @@ public class BattleManager : MonoBehaviour
 
     public void StoreName()
     {
-        playerName = inputField.text;
-        Debug.Log(playerName);
+        GameManager.playerName = inputField.text;
     }
 
 }

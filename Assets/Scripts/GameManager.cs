@@ -14,12 +14,19 @@ public class GameManager : MonoBehaviour
     public List<Button> buttons = new List<Button>();
     public WebRequest webRequest;
     public Canvas[] Canvases = new Canvas[3];
-    private int battleid;
-    private int playerid;
+
+    public static int battleID;
+    public static string playerName;
+    public static bool isPlayerOne;
 
     void Start()
     {
         isTimerRunning = true;
+
+        battleID = 1;
+        playerName = "Nadav";
+        isPlayerOne = true;
+
     }
 
     void Update()
