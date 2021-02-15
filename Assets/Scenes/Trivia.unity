@@ -415,7 +415,7 @@ Transform:
   - {fileID: 660074558}
   - {fileID: 593465914}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112695646
 GameObject:
@@ -1358,7 +1358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &521765853
 GameObject:
@@ -2904,19 +2904,19 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.31443042, g: 0.9811321, b: 0.26379493, a: 1}
-        key1: {r: 0.27058828, g: 0.32788485, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.05913973, a: 0}
-        key3: {r: 0.990566, g: 0.90190965, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0.0463562, a: 1}
+        key1: {r: 0.31443042, g: 0.9811321, b: 0.26379493, a: 1}
+        key2: {r: 0.27058828, g: 0.32788485, b: 1, a: 0}
+        key3: {r: 1, g: 0, b: 0.05913973, a: 0}
+        key4: {r: 0.990566, g: 0.90190965, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 11565
-        ctime1: 25443
-        ctime2: 47609
-        ctime3: 65535
-        ctime4: 0
+        ctime0: 2313
+        ctime1: 11565
+        ctime2: 26214
+        ctime3: 44525
+        ctime4: 59753
         ctime5: 0
         ctime6: 0
         ctime7: 0
@@ -2929,7 +2929,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 4
+        m_NumColorKeys: 5
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -7850,19 +7850,19 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.31443042, g: 0.9811321, b: 0.26379493, a: 1}
-        key1: {r: 0.27058828, g: 0.32788485, b: 1, a: 1}
-        key2: {r: 1, g: 0, b: 0.05913973, a: 0}
-        key3: {r: 0.990566, g: 0.90190965, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0.0463562, a: 1}
+        key1: {r: 0.31443042, g: 0.9811321, b: 0.26379493, a: 1}
+        key2: {r: 0.27058828, g: 0.32788485, b: 1, a: 0}
+        key3: {r: 1, g: 0, b: 0.05913973, a: 0}
+        key4: {r: 0.990566, g: 0.90190965, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 11565
-        ctime1: 25443
-        ctime2: 47609
-        ctime3: 65535
-        ctime4: 0
+        ctime0: 2313
+        ctime1: 11565
+        ctime2: 26214
+        ctime3: 44525
+        ctime4: 59753
         ctime5: 0
         ctime6: 0
         ctime7: 0
@@ -7875,7 +7875,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 4
+        m_NumColorKeys: 5
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -11487,7 +11487,7 @@ RectTransform:
   - {fileID: 521765854}
   - {fileID: 1100845462}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12162,6 +12162,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1342595048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342595050}
+  - component: {fileID: 1342595049}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342595049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342595048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c981edad8f88fb545971b93de61c0409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 1043694486}
+  playerName: 
+--- !u!4 &1342595050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342595048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366005523
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,7 +12326,7 @@ RectTransform:
   - {fileID: 1377880715}
   - {fileID: 756699536}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12909,6 +12954,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1342595049}
+        m_MethodName: StoreName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599906136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13172,7 +13228,7 @@ Transform:
   m_Children:
   - {fileID: 1664911918}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698168109
 GameObject:
@@ -13269,7 +13325,7 @@ RectTransform:
   - {fileID: 313167801}
   - {fileID: 1043694485}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

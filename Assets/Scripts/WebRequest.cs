@@ -9,7 +9,7 @@ public class WebRequest : MonoBehaviour
 
     public List<string> CurrentData;
 
-    [Header("Database Text")]
+    [Header("Database to Buttons")]
     public TextMeshProUGUI Question_text;
     public TextMeshProUGUI Answer1;
     public TextMeshProUGUI Answer2;
@@ -62,6 +62,7 @@ public class WebRequest : MonoBehaviour
         StartCoroutine(GetRequest(BUri, battleid));
         
     }  
+
     public void EnterName(int battleid)
     {
         StartCoroutine(GetRequest(BUri, battleid));
