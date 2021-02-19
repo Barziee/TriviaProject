@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public List<Button> buttons = new List<Button>();
+    public WebRequest webRequest;
+    public Canvas[] Canvases;
+
+    [Header("Answer Check")]
+    public GameObject correct;
+    public GameObject wrong;
+    public AudioSource correctSound;
+    public AudioSource wrongSound;
+
     [Header("Timer")]
     public TextMeshProUGUI timer;
     public TextMeshProUGUI WinnerName;
@@ -15,27 +24,29 @@ public class GameManager : MonoBehaviour
     public float timeForRound;
     public float timeRemaining;
     public bool isTimerRunning = false;
-    public List<Button> buttons = new List<Button>();
-    public WebRequest webRequest;
-    public Canvas[] Canvases;
-    public bool isDone = false;
+
+    private int maxQuestions = 5; // 4 questions on default
     public int battleID;
     public string playerName;
+    public bool isDone = false;
     public bool isPlayerOne;
-    private int maxQuestions = 5;
+
 
     void Start()
     {
-
         instance = this;
         Canvases[2].gameObject.SetActive(true);
         webRequest.get_question();
         Canvases[2].gameObject.SetActive(false);
     }
 
-    public IEnumerator SetSettings()
+    void Update()
     {
-      
+        Timer();
+    }
+
+    public IEnumerator SetSettings()
+    { 
         for (int i = 1; i < 6; i++)
         {
             webRequest.CurrentDataB.Clear();
@@ -54,18 +65,12 @@ public class GameManager : MonoBehaviour
             {
                 battleID = i;
                 isPlayerOne = false;
-                webRequest.SendNameRequest();//false is player two
+                webRequest.SendNameRequest(); //false is player two
                 StartCoroutine(SetOppenentName());
                 yield break;
                 //fill and return
             }
-         
-           
-      
-
-
-        }
-       
+        }   
     }
 
     private IEnumerator SetOppenentName()
@@ -85,14 +90,7 @@ public class GameManager : MonoBehaviour
             Canvases[3].gameObject.SetActive(false);
             Canvases[2].gameObject.SetActive(true);
             isTimerRunning = true;
-
-        }
-        
-    }
-
-    void Update()
-    {
-        Timer();
+        }     
     }
 
     public void Timer()
@@ -119,14 +117,16 @@ public class GameManager : MonoBehaviour
         if (buttons[index].GetComponentInChildren<TextMeshProUGUI>().text == webRequest.Correct_Answer)
         {
             Debug.Log("CORRECT!");
+            StartCoroutine(Correct());
             webRequest.GetAnswerRequest();
         }
         else
         {
-         
             Debug.Log("INCORRECT");
+            StartCoroutine(False());
         }
-        if(webRequest._questionID < maxQuestions)
+
+        if (webRequest._questionID < maxQuestions)
         {
             webRequest.get_question();
         }
@@ -138,10 +138,9 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(CheckWinner());
                 webRequest.SendNameRequest();
             }
-          
-
         }
     } 
+
     void EndGame()
     {
         for (int i = 0; i < 4; i++)
@@ -151,6 +150,7 @@ public class GameManager : MonoBehaviour
         Canvases[Canvases.Length - 1].gameObject.SetActive(true);
         webRequest.GetDeleteRequest();
     }
+
     public IEnumerator CheckWinner()
     {
         webRequest.CurrentDataB.Clear();
@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
     public void PlayButton()// 0 main menu 1 connecting 2 trivia
     {
         Canvases[0].gameObject.SetActive(false);
@@ -203,6 +204,23 @@ public class GameManager : MonoBehaviour
     {
         Canvases[1].gameObject.SetActive(false);
         Canvases[3].gameObject.SetActive(true);
+    }
+
+
+    public IEnumerator Correct()
+    {
+        correct.SetActive(true);
+        correctSound.Play(0);
+        yield return new WaitForSeconds(2f);
+        correct.SetActive(false);
+    }
+
+    public IEnumerator False()
+    {
+        wrong.SetActive(true);
+        wrongSound.Play();
+        yield return new WaitForSeconds(2f);
+        wrong.SetActive(false);
     }
 
 }
