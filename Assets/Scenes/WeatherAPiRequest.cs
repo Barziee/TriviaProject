@@ -13,8 +13,6 @@ public class WeatherAPiRequest : MonoBehaviour
     {
         // A correct website page.
         StartCoroutine(GetRequest("http://api.openweathermap.org/data/2.5/weather?q=London&appid=4fc7c98d5928c9e74603616e08d7f704"));
-
-       
     }
    
     IEnumerator GetRequest(string uri)

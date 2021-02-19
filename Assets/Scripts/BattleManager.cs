@@ -21,7 +21,8 @@ public class BattleManager : MonoBehaviour
 
     public void StoreName()
     {
-        GameManager.playerName = inputField.text;
+        GameManager.instance.playerName = inputField.text;
+        GameManager.instance.StartCoroutine(GameManager.instance.SetSettings());
     }
 
 }
